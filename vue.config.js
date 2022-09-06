@@ -13,7 +13,7 @@ module.exports = defineConfig({
         runtimeCaching: [{
             // キャッシュするファイルのURLを正規表現で指定する
             urlPattern: /.+(\/|.html)$/,
-            handler: 'CacheFirst',
+            handler: 'networkFirst',
         }]
     }
   }
