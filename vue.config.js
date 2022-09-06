@@ -1,9 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
 
-const { GenerateSW } = require('workbox-webpack-plugin')
-
-const path = require('path')
-
 module.exports = defineConfig({
   transpileDependencies: true,
 
@@ -12,6 +8,13 @@ module.exports = defineConfig({
     themeColor: '#333',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
-
+    workboxPluginMode: 'GenerateSW',
+    workboxOptions: {
+        runtimeCaching: [{
+            // キャッシュするファイルのURLを正規表現で指定する
+            urlPattern: /.+(\/|.html)$/,
+            handler: 'CacheFirst',
+        }]
+    }
   }
 })
