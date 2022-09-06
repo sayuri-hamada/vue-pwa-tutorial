@@ -17,16 +17,12 @@ if (process.env.NODE_ENV === 'production') {
         navigator.serviceWorker
           .register('/service-worker.js')
           .then(registration => {
-            // 登録成功
             registration.onupdatefound = function() {
-              console.log('アップデートがあります！');
               registration.update();
             }
           })
           .catch(err => {
-            // 登録失敗
             console.log(err);
-            console.log('エラーがあります')
         });
       }
     },
