@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'production') {
 
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-          .register('/serviceworker.js')
+          .register('/service-worker.js')
           .then(registration => {
             // 登録成功
             registration.onupdatefound = function() {
@@ -26,6 +26,7 @@ if (process.env.NODE_ENV === 'production') {
           .catch(err => {
             // 登録失敗
             console.log(err);
+            console.log('エラーがあります')
         });
       }
     },
