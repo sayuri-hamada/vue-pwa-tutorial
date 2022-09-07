@@ -8,13 +8,18 @@ module.exports = defineConfig({
     themeColor: '#333',
     appleMobileWebAppCapable: 'yes',
     appleMobileWebAppStatusBarStyle: 'black',
-    workboxPluginMode: 'GenerateSW',
+    // workboxPluginMode: 'GenerateSW',
+    // workboxOptions: {
+    //     runtimeCaching: [{
+    //         // キャッシュするファイルのURLを正規表現で指定する
+    //         urlPattern: /.+(\/|.html)$/,
+    //         handler: 'CacheFirst',
+    //     }]
+    // }
+    workboxPluginMode: 'InjectManifest',
     workboxOptions: {
-        runtimeCaching: [{
-            // キャッシュするファイルのURLを正規表現で指定する
-            urlPattern: /.+(\/|.html)$/,
-            handler: 'CacheFirst',
-        }]
+      swSrc: "./src/service-worker.js"
     }
+
   }
 })

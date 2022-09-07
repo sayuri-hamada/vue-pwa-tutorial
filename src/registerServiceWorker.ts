@@ -13,18 +13,21 @@ if (process.env.NODE_ENV === 'production') {
     registered () {
       console.log('Service worker has been registered.')
 
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('/service-worker.js')
-          .then(registration => {
-            registration.onupdatefound = function() {
-              registration.update();
-            }
-          })
-          .catch(err => {
-            console.log(err);
-        });
-      }
+      // if ('serviceWorker' in navigator) {
+      //   navigator.serviceWorker
+      //     .register('/service-worker.js')
+      //     .then(registration => {
+      //       // 登録成功
+      //       registration.onupdatefound = function() {
+      //         registration.update();
+
+      //       }
+      //     })
+      //     .catch(err => {
+      //       // 登録失敗
+      //       console.log(err);
+      //   });
+      // }
     },
     cached () {
       console.log('Content has been cached for offline use.')
